@@ -5,6 +5,8 @@ import Intro from "./scenes/Intro";
 import Hud from "./scenes/Hud";
 import GameOver from "./scenes/GameOver";
 import GamePlay from "./scenes/GamePlay";
+import Prova from "./scenes/Prova";
+import Prova2 from "./scenes/Prova2";
 import { GameData } from "./GameData";
 
 window.addEventListener("load", () => {
@@ -25,7 +27,9 @@ window.addEventListener("load", () => {
       Intro,
       Hud,
       GamePlay,
-      GameOver
+      GameOver,
+      Prova,
+      Prova2
     ],
 
     physics: {

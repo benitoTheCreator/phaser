@@ -19,10 +19,10 @@ export let GameData: any = {
   images: [  
     {name: "logo", path: "assets/images/logo.png"},
     {name: "bg", path: "assets/images/bg.png"},
+    {name: "bg1", path: "assets/images/bg1.png"},
     {name: "player", path: "assets/images/player.png"},
-    {name: "enemy", path: "assets/images/enemy.png"}
-
-
+    {name: "enemy", path: "assets/images/enemy.png"},
+    {name: "macchina", path: "assets/images/macchina.jpeg"}
 
   ],
   atlas: [],
