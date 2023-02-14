@@ -15,7 +15,22 @@ export let GameData: any = {
   //   loadingText: "",
   // },
 
-  spritesheets: [],
+  spritesheets: [
+    {
+      name: "player-sheet",
+      path: "assets/images/player_sheet.png",
+      width: 16,
+      height: 16,
+      frames: 44
+    },
+    {
+      name: "players",
+      path: "assets/images/players.png",
+      width: 52,
+      height: 70,
+      frames: 84
+    },
+  ],
   images: [  
     {name: "logo", path: "assets/images/logo.png"},
     {name: "bg", path: "assets/images/bg.png"},

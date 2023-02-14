@@ -7,6 +7,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
     protected _body: Phaser.Physics.Arcade.Body;
     private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
+    private _ismoving: boolean = false;
+    private _canMove: boolean = false;
+    private _canJump: boolean = false;
+
     constructor(params: genericConfig) {
         super(params.scene, params.x, params.y, params.key);
         this._config = params;
@@ -25,28 +29,55 @@ export default class Player extends Phaser.GameObjects.Sprite {
     
     
     create(){ }
-    update(time: number, delta: number){
 
+    setCanMove(bool: boolean){
+        this._canMove = bool;
+    }
+
+    setCanJump(bool: boolean){
+        this._canJump = bool;
+    }
+
+    movement(){
+        if(!this._ismoving){
+            let _animation: Phaser.Types.Animations.Animation = {
+                key: "player-running",
+                frames: this.anims.generateFrameNumbers("player-sheet", { frames: [36,37,38,39,40,41] }),
+                frameRate: 8,
+                yoyo: false,
+                repeat: -1
+              };
+            this.anims.create(_animation);
+            this.play("player-running");
+
+            this._ismoving = true;
+        }
+    }
+
+    update(time: number, delta: number){
+        
         //se il tasto cursore left è premuto
         if (this._cursors.left.isDown) {
-            //sottraiamo 10px alla x della bomba
             // this.x -= 10;
             this.x -= 10;
+            this.movement()
         }
         //se il tasto cursore right è premuto
         else if (this._cursors.right.isDown) {
-            //aggiungiamo 10px alla x della bomba
             this.x += 10;
+            this.movement()
         }
         //se il tasto cursore up è premuto
         if (this._cursors.up.isDown) {
-            //sottraiamo 10px alla y della bomba
-            this.y -= 10;
+            if(this._canJump === true){
+                this._body.setVelocityY(-500);
+            }
+            this.movement()
         }
         //se il tasto cursore down è premuto
         else if (this._cursors.down.isDown) {
-            //aggiungiamo 10px alla y della bomba
-            this.y += 10;
+            
+            this.movement()
         }
     }
 

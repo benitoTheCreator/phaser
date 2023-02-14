@@ -36,7 +36,7 @@ window.addEventListener("load", () => {
       default: "arcade",
       arcade: {
         debug: GameData.globals.debug,
-
+        gravity: {y: 300}
       }
     },
     input: {

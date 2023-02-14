@@ -29,7 +29,8 @@ export default class Prova extends Phaser.Scene {
 
     //player
     this._playerGroup = this.add.group({runChildUpdate: true}); //runChildUpdate chiama la funzione update su ogni elemento del gruppo  
-    this._player =  new Player({scene: this, x: 250, y: 650, key: "player"}).setAlpha(1);
+    this._player =  new Player({scene: this, x: 250, y: 650, key: "player-sheet"}).setAlpha(1);
+    this._player.setFrame(0).setScale(5);
     this._playerGroup.add(this._player);
 
     //macchina del tempo
@@ -37,6 +38,10 @@ export default class Prova extends Phaser.Scene {
 
     //collider
     this.physics.add.collider(this._player, this._machine, () => {
+      //stop movimento player
+      this._player.body.velocity.x = 0;
+
+      //zoom sulla navicella
         this.panTo();
         this.zoomTo();
         this.time.addEvent({
@@ -86,7 +91,14 @@ export default class Prova extends Phaser.Scene {
 
 
   update(time: number, delta: number): void {
-    
+
+
+    //setta se il player sta a terra e quindi può saltare
+    if(this._player.y > 890){ //qui ho messo questo a caso aspettando di avere un ground
+      this._player.setCanJump(true);
+    } else {
+      this._player.setCanJump(false);
+    }
     
   }
 }
