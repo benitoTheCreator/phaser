@@ -30,6 +30,20 @@ export let GameData: any = {
       height: 70,
       frames: 84
     },
+    {
+      name: "primitiveMan",
+      path: "assets/images/npc/past/primitiveMan_sheet.png",
+      width: 18,
+      height: 18,
+      frames: 44
+    },
+    {
+      name: "bomb",
+      path: "assets/images/bomb.png",
+      width: 33,
+      height: 31,
+      frames: 12
+    },
   ],
   images: [  
     {name: "logo", path: "assets/images/logo.png"},
