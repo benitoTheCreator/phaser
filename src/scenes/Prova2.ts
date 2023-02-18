@@ -104,13 +104,22 @@ export default class Prova2 extends Phaser.Scene {
           callbackScope: this
       })
     }, null, this);
+
     
-    //oggetto da lanciare (implementare array con gruppo per metterne di più)
+    
+    //oggetto da lanciare (implementare array  per metterne di più)
     this._bomb = new Bomb({scene: this, x: 900, y: 600, key: "bomb"}).setScale(2);
 
+    //bomba e player
+    this.physics.add.collider(this._bomb, this._player, () => {
+      this._bomb.move(this._player.x - this._enemy.x);
+    }, null, this);
+
+
+    //bomba e nemico
     this.physics.add.collider(this._bomb, this._enemy, () => {
       this._bomb.destroy()
-      this._enemy.x-=20;
+      this._enemy.stopMov()
       
     }, null, this);
 
@@ -128,10 +137,7 @@ export default class Prova2 extends Phaser.Scene {
       this._player.setCanJump(false);
     }
 
-    if(this._bomb.x - this._player.x < 20){
-      this._bomb.move();
-      
-    }
+   
     
   }
 }

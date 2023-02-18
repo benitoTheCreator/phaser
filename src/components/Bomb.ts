@@ -24,8 +24,8 @@ export default class Bomb extends Phaser.GameObjects.Sprite {
     
     create(){ }
 
-    move(){
-        this._body.setVelocityX(-800);
+    move(x: number){
+        this._body.setVelocityX(-x);
     }
     update(time: number, delta: number){
 

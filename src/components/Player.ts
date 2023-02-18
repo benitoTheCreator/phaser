@@ -20,8 +20,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this._body = <Phaser.Physics.Arcade.Body>this.body;
         
 
-        this.setScale(0.2);
-        this._body.setCollideWorldBounds(true);
+        
+        // this._body.setCollideWorldBounds(true);
 
         // settiamo i tasti cursore
         this._cursors = this._scene.input.keyboard.createCursorKeys();

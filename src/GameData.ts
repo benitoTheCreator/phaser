@@ -1,8 +1,8 @@
 export let GameData: any = {
   globals: {
     leaderboard: false,
-    gameWidth: "100vw",
-    gameHeight: "100vh",
+    gameWidth: 1500,
+    gameHeight: 1000,
     bgColor: "#ffffff",
     debug: false,
   },
@@ -49,6 +49,8 @@ export let GameData: any = {
     {name: "logo", path: "assets/images/logo.png"},
     {name: "bg", path: "assets/images/bg.png"},
     {name: "bg1", path: "assets/images/bg1.png"},
+    {name: "grid", path: "assets/images/grid.png"},
+    {name: "ground", path: "assets/images/ground.png"},
     {name: "player", path: "assets/images/player.png"},
     {name: "enemy", path: "assets/images/enemy.png"},
     {name: "macchina", path: "assets/images/macchina.jpeg"}
