@@ -22,6 +22,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
         
         // this._body.setCollideWorldBounds(true);
+        
 
         // settiamo i tasti cursore
         this._cursors = this._scene.input.keyboard.createCursorKeys();
@@ -70,7 +71,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         //se il tasto cursore up è premuto
         if (this._cursors.up.isDown) {
             if(this._canJump === true){
-                this._body.setVelocityY(-500);
+                this._body.setVelocityY(-400);
             }
             this.movement()
         }
@@ -79,6 +80,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
             
             this.movement()
         }
+
+       
+        
     }
 
 

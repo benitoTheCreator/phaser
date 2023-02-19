@@ -53,6 +53,7 @@ export let GameData: any = {
     {name: "ground", path: "assets/images/ground.png"},
     {name: "player", path: "assets/images/player.png"},
     {name: "enemy", path: "assets/images/enemy.png"},
+    {name: "obstacle", path: "assets/images/obstacle.png"},
     {name: "macchina", path: "assets/images/macchina.jpeg"}
 
   ],
