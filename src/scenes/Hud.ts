@@ -19,8 +19,8 @@ export default class Hud extends Phaser.Scene {
     this._mainCamera = this.cameras.main;
     this._mainCamera.setBackgroundColor(0x000000);
 
-    this.add.image(0,0,"grid").setOrigin(0);
-    this.add.image(1000,0,"grid").setOrigin(0);
+    this.add.image(0,140,"grid").setOrigin(0);
+    this.add.image(1000,140,"grid").setOrigin(0);
 
 
     this._playerGroup = this.add.group({runChildUpdate: true}); //runChildUpdate chiama la funzione update su ogni elemento del gruppo  
@@ -29,7 +29,7 @@ export default class Hud extends Phaser.Scene {
     this._playerGroup.add(this._player);
 
     //ground
-    this._ground = this.physics.add.image(0,950,"ground").setOrigin(0)
+    this._ground = this.physics.add.image(0,1100,"ground").setOrigin(0)
     this._ground.body.allowGravity = false;
     this._ground.body.setImmovable(true)
 
@@ -42,6 +42,7 @@ export default class Hud extends Phaser.Scene {
 
     this._mainCamera.setBounds(0,0, this.game.canvas.width * 2,  this.game.canvas.height * 2);
     this._mainCamera.startFollow(this._player, true, 0.05, 0.05);
+    this._mainCamera.setLerp(1,0);
 
 
 
