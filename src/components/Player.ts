@@ -69,10 +69,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.movement()
         }
         //se il tasto cursore up è premuto
-        if (this._cursors.up.isDown) {
-            if(this._canJump === true){
-                this._body.setVelocityY(-400);
-            }
+        if (this._cursors.up.isDown && this._body.touching.down) {
+            this._body.setVelocityY(-400);
             this.movement()
         }
         //se il tasto cursore down è premuto

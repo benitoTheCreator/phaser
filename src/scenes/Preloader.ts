@@ -64,7 +64,7 @@ export default class Preloader extends Phaser.Scene {
           duration: 500,
           onComplete: () => {
             // this.scene.start("Prova2");
-            this.scene.start("Hud");
+            this.scene.start("Livello3");
           },
         });
       });

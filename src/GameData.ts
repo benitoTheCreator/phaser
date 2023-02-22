@@ -32,7 +32,7 @@ export let GameData: any = {
     },
     {
       name: "primitiveMan",
-      path: "assets/images/npc/past/primitiveMan_sheet.png",
+      path: "assets/images/past/npc/primitiveMan(18x18)_sheet.png",
       width: 18,
       height: 18,
       frames: 44
@@ -49,6 +49,7 @@ export let GameData: any = {
     {name: "logo", path: "assets/images/logo.png"},
     {name: "bg", path: "assets/images/bg.png"},
     {name: "bg1", path: "assets/images/bg1.png"},
+    {name: "bg3", path: "assets/images/bg3.png"},
     {name: "grid", path: "assets/images/grid.png"},
     {name: "ground", path: "assets/images/ground.png"},
     {name: "player", path: "assets/images/player.png"},
