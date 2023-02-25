@@ -55,10 +55,14 @@ export let GameData: any = {
     {name: "player", path: "assets/images/player.png"},
     {name: "enemy", path: "assets/images/enemy.png"},
     {name: "obstacle", path: "assets/images/obstacle.png"},
+<<<<<<< HEAD
     {name: "macchina", path: "assets/images/macchina.jpeg"},
     {name: "vision", path: "assets/images/Vision.png"},
     {name: "wall3", path: "assets/images/wall3.png"}
 
+=======
+    {name: "macchina", path: "assets/images/macchina.jpeg"}
+>>>>>>> 4138e38a59e0894266124adfcaa8c87c8feb6f3b
 
   ],
   atlas: [],

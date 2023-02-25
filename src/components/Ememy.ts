@@ -18,7 +18,10 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         this.setScale(4);
         this.setFrame(0)
+<<<<<<< HEAD
         this._body.allowGravity = false;
+=======
+>>>>>>> 4138e38a59e0894266124adfcaa8c87c8feb6f3b
 
         // settiamo i tasti cursore
         this._cursors = this._scene.input.keyboard.createCursorKeys();
