@@ -18,16 +18,22 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         this.setScale(4);
         this.setFrame(0)
-<<<<<<< HEAD
         this._body.allowGravity = false;
-=======
->>>>>>> 4138e38a59e0894266124adfcaa8c87c8feb6f3b
 
         // settiamo i tasti cursore
         this._cursors = this._scene.input.keyboard.createCursorKeys();
 
 
-        
+        let _animation: Phaser.Types.Animations.Animation = {
+            key: "player-running",
+            frames: this.anims.generateFrameNumbers("enemy", { frames: [30,31,32,33,34,35] }),
+            // frames: this.anims.generateFrameNumbers("player-sheet", { frames: [36,37,38,39,40,41] }),
+            frameRate: 8,
+            yoyo: false,
+            repeat: -1
+          };
+        this.anims.create(_animation);
+        this.play("player-running");
     }
     
     

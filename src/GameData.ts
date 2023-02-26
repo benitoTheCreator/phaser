@@ -44,6 +44,13 @@ export let GameData: any = {
       height: 31,
       frames: 12
     },
+    {
+      name: "enemy",
+      path: "assets/images/future/enemy(16x16)_sheet.png",
+      width: 16,
+      height: 16,
+      frames: 44
+    }
   ],
   images: [  
     {name: "logo", path: "assets/images/logo.png"},
@@ -53,17 +60,11 @@ export let GameData: any = {
     {name: "grid", path: "assets/images/grid.png"},
     {name: "ground", path: "assets/images/ground.png"},
     {name: "player", path: "assets/images/player.png"},
-    {name: "enemy", path: "assets/images/enemy.png"},
+    // {name: "enemy", path: "assets/images/enemy.png"},
     {name: "obstacle", path: "assets/images/obstacle.png"},
-<<<<<<< HEAD
     {name: "macchina", path: "assets/images/macchina.jpeg"},
     {name: "vision", path: "assets/images/Vision.png"},
     {name: "wall3", path: "assets/images/wall3.png"}
-
-=======
-    {name: "macchina", path: "assets/images/macchina.jpeg"}
->>>>>>> 4138e38a59e0894266124adfcaa8c87c8feb6f3b
-
   ],
   atlas: [],
   sounds: [
