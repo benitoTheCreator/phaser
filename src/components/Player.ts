@@ -59,30 +59,28 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     update(time: number, delta: number){
         
+        this._body.setVelocityX(0);
+        this._body.setVelocityY(0);
+
         //se il tasto cursore left è premuto
-        if (this._cursors.left.isDown) {
-            // this.x -= 10;
-            this.x -= 10;
+        if (this._cursors.left.isDown && !this._body.touching.left) {
+            this._body.setVelocityX(-200);
             this.movement()
         }
         //se il tasto cursore right è premuto
-        else if (this._cursors.right.isDown) {
-            this.x += 10;
+        else if (this._cursors.right.isDown && !this._body.touching.right) {
+            this._body.setVelocityX(200);
             this.movement()
         }
         //se il tasto cursore up è premuto
-        // if (this._cursors.up.isDown && this._body.touching.down) {
-        //     this._body.setVelocityY(-400);
-        //     this.movement()
-        // }
-        if (this._cursors.up.isDown && this._body.touching.down) {
-            this._body.setVelocityY(-400);
-            this.movement()
+        if (this._cursors.up.isDown && !this._body.touching.up) {
+             this._body.setVelocityY(-200)
+             this.movement()
         }
         //se il tasto cursore down è premuto
-        else if (this._cursors.down.isDown) {
+        else if (this._cursors.down.isDown && !this._body.touching.down) {
             this.movement()
-            this.y+=10
+            this._body.setVelocityY(200)
         }
 
        
