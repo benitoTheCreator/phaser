@@ -25,11 +25,12 @@ export default class Livello3 extends Phaser.Scene {
     
         this.add.image(0,140,"bg3").setOrigin(0).setPipeline("Light2D");
         this.add.image(0,140,"black").setOrigin(0).setAlpha(0.6);
-        this.add.image(0,940,"bg3").setOrigin(0).setPipeline("Light2D");
-        this.add.image(0,908,"black").setOrigin(0).setAlpha(0.6);
-        this.add.image(0,1640,"bg3").setOrigin(0).setPipeline("Light2D");
-        this.add.image(0,1608,"black").setOrigin(0).setAlpha(0.6);
-
+        this.add.image(0,740,"bg3").setOrigin(0).setPipeline("Light2D");
+        this.add.image(0,708,"black").setOrigin(0).setAlpha(0.6);
+        this.add.image(0,1340,"bg3").setOrigin(0).setPipeline("Light2D");
+        this.add.image(0,1308,"black").setOrigin(0).setAlpha(0.6);
+        this.add.image(0,2008,"bg3").setOrigin(0).setPipeline("Light2D");
+        this.add.image(0,2008,"black").setOrigin(0).setAlpha(0.6);
 
     
     
@@ -74,7 +75,25 @@ export default class Livello3 extends Phaser.Scene {
 
 
         //life
-        this._life = this.add.sprite(500, 300,"life",3).setScale(0.09).setDepth(11)
+        this._life = this.add.sprite(200, 300,"life",3).setScale(0.09).setDepth(11);
+
+
+        //tanica
+        let tanica = this.physics.add.sprite(512, 2300, "bomb").setScale(2);
+        tanica.body.allowGravity = false;
+        tanica.setImmovable(true)
+
+        this.physics.add.collider(tanica, this._player, (obj1: any, obj2: any) => {
+            this._mainCamera.pan(tanica.x, tanica.y, 1000);
+            this._mainCamera.zoomTo(3, 1000);
+            this.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.scene.start("Hud")
+                },
+                callbackScope: this
+            })
+        }, null, this);
     }
 
     spawnNemici(){
@@ -163,14 +182,16 @@ export default class Livello3 extends Phaser.Scene {
             this._life.destroy()
             this._life = this.add.sprite(500,300,"life",2).setScale(0.09).setDepth(11)
           }     
-          else if(this._vite === 1){
+        else if(this._vite === 1){
             this._life.destroy()
             this._life = this.add.sprite(500,300,"life",1).setScale(0.09).setDepth(11)
-          }
-          else if(this._vite === 0){
+        }
+        else if(this._vite === 0){
             this._life.destroy()
             this._life = this.add.sprite(500,300,"life",0).setScale(0.09).setDepth(11)
-          }
+        }
+
+        this._life.y = this._player.y - 250;
     }
   
 }

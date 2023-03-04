@@ -2,7 +2,7 @@ export let GameData: any = {
   globals: {
     leaderboard: false,
     gameWidth: 1024,
-    gameHeight: 800,
+    gameHeight: 600,
     bgColor: "#ffffff",
     debug: true,
   },
