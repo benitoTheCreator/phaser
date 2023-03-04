@@ -7,9 +7,9 @@ export default class Livello3 extends Phaser.Scene {
     private _player: Player;
     private _playerGroup: Phaser.GameObjects.Group;
     private _ground: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
-    private _obstacle: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
-
-    private playerTouchingGround: boolean = false;
+    private _lights: Phaser.GameObjects.Light;
+    private _vite: number;
+    private _life: Phaser.GameObjects.Sprite;
 
 
     constructor() {
@@ -19,13 +19,18 @@ export default class Livello3 extends Phaser.Scene {
     }
   
     create() {
-        
+        this._vite = 3;
         this._mainCamera = this.cameras.main;
         this._mainCamera.setBackgroundColor(0x000000);
     
-        this.add.image(0,140,"bg3").setOrigin(0);
-        this.add.image(0,1340,"bg3").setOrigin(0);
-        this.add.image(0,2640,"bg3").setOrigin(0);
+        this.add.image(0,140,"bg3").setOrigin(0).setPipeline("Light2D");
+        this.add.image(0,140,"black").setOrigin(0).setAlpha(0.6);
+        this.add.image(0,940,"bg3").setOrigin(0).setPipeline("Light2D");
+        this.add.image(0,908,"black").setOrigin(0).setAlpha(0.6);
+        this.add.image(0,1640,"bg3").setOrigin(0).setPipeline("Light2D");
+        this.add.image(0,1608,"black").setOrigin(0).setAlpha(0.6);
+
+
     
     
         this._playerGroup = this.add.group({runChildUpdate: true}); //runChildUpdate chiama la funzione update su ogni elemento del gruppo  
@@ -62,11 +67,14 @@ export default class Livello3 extends Phaser.Scene {
 
 
        this.spawnPiattaforme()
-      
-        
-      
 
-        
+        this.lights.enable();
+        this.lights.setAmbientColor(0x000000);
+        this._lights = this.lights.addLight(400,400,100000);
+
+
+        //life
+        this._life = this.add.sprite(500, 300,"life",3).setScale(0.09).setDepth(11)
     }
 
     spawnNemici(){
@@ -82,16 +90,21 @@ export default class Livello3 extends Phaser.Scene {
         nemici.forEach(nemico => {
             let enemy = new Enemy({scene: this, x: nemico.x, y: nemico.y, key: "enemy"})
             
-            let cono = this.physics.add.image(nemico.x + 70, nemico.y + 20, "vision").setAlpha(0.5).setScale(0.4).setSize(130, 150);
+            let cono = this.physics.add.image(nemico.x + 180, nemico.y + 10, "vision").setAlpha(0.5).setScale(0.8).setSize(320, 200).setAngle(210);
             cono.body.setImmovable()
             cono.body.allowGravity = false
             cono.rotation+=1;
 
             this.physics.add.collider(cono, this._player, (obj1: any, obj2: any) => {
-                this.scene.restart()
+                if(this._vite > 0){
+                    this._vite--;
+                    this._player.x = 350;
+                    this._player.y = 650;
+                } else {
+                    this.scene.start("Gameover")
+                }
             }, null, this);
-
-
+            
             this.time.addEvent({
                 delay: 1000,
                 loop: false,
@@ -107,7 +120,7 @@ export default class Livello3 extends Phaser.Scene {
                         ease: "Linear"        
                     })
                     this.tweens.add({
-                        x: nemico.x + 170,
+                        x: nemico.x + 260,
                         targets: cono,
                         duration: 4000,
                         repeat: -1,
@@ -143,7 +156,21 @@ export default class Livello3 extends Phaser.Scene {
 
     update(time: number, delta: number): void {
 
-        
+        this._lights.x = this._player.x;
+        this._lights.y = this._player.y;
+
+        if(this._vite === 2){
+            this._life.destroy()
+            this._life = this.add.sprite(500,300,"life",2).setScale(0.09).setDepth(11)
+          }     
+          else if(this._vite === 1){
+            this._life.destroy()
+            this._life = this.add.sprite(500,300,"life",1).setScale(0.09).setDepth(11)
+          }
+          else if(this._vite === 0){
+            this._life.destroy()
+            this._life = this.add.sprite(500,300,"life",0).setScale(0.09).setDepth(11)
+          }
     }
   
 }

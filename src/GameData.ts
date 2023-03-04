@@ -1,10 +1,10 @@
 export let GameData: any = {
   globals: {
     leaderboard: false,
-    gameWidth: 1500,
-    gameHeight: 1000,
+    gameWidth: 1024,
+    gameHeight: 800,
     bgColor: "#ffffff",
-    debug: false,
+    debug: true,
   },
 
   // preloader: {
@@ -50,21 +50,22 @@ export let GameData: any = {
       width: 16,
       height: 16,
       frames: 44
+    }, {
+      name: "life",
+      path: "assets/images/lifeBar_spritesheet.png",
+      frames: 4,
+      width: 2179,
+      height: 1330
     }
   ],
   images: [  
     {name: "logo", path: "assets/images/logo.png"},
-    {name: "bg", path: "assets/images/bg.png"},
     {name: "bg1", path: "assets/images/bg1.png"},
     {name: "bg3", path: "assets/images/bg3.png"},
-    {name: "grid", path: "assets/images/grid.png"},
-    {name: "ground", path: "assets/images/ground.png"},
-    {name: "player", path: "assets/images/player.png"},
-    // {name: "enemy", path: "assets/images/enemy.png"},
-    {name: "obstacle", path: "assets/images/obstacle.png"},
-    {name: "macchina", path: "assets/images/macchina.jpeg"},
-    {name: "vision", path: "assets/images/Vision.png"},
-    {name: "wall3", path: "assets/images/wall3.png"}
+    {name: "vision", path: "assets/images/luceAlieno.png"},
+    {name: "wall3", path: "assets/images/wall3.png"},
+    {name: "black", path: "assets/images/black.jpg"},
+    {name: "lights", path: "assets/images/lights.png"}
   ],
   atlas: [],
   sounds: [

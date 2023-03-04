@@ -5,8 +5,6 @@ import Intro from "./scenes/Intro";
 import Hud from "./scenes/Hud";
 import GameOver from "./scenes/GameOver";
 import GamePlay from "./scenes/GamePlay";
-import Prova from "./scenes/Prova";
-import Prova2 from "./scenes/Prova2";
 import { GameData } from "./GameData";
 import Livello3 from "./scenes/Livello3";
 
@@ -29,8 +27,6 @@ window.addEventListener("load", () => {
       Hud,
       GamePlay,
       GameOver,
-      Prova,
-      Prova2,
       Livello3
     ],
 

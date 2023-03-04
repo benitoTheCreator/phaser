@@ -25,12 +25,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
         // settiamo i tasti cursore
         this._cursors = this._scene.input.keyboard.createCursorKeys();
-
-        
     }
     
     
-    create(){ }
+    create(){ 
+        
+
+    }
 
     setCanMove(bool: boolean){
         this._canMove = bool;
