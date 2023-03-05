@@ -4,7 +4,7 @@ export let GameData: any = {
     gameWidth: 1024,
     gameHeight: 600,
     bgColor: "#ffffff",
-    debug: true,
+    debug: false,
   },
 
   // preloader: {
@@ -65,7 +65,9 @@ export let GameData: any = {
     {name: "vision", path: "assets/images/luceAlieno.png"},
     {name: "wall3", path: "assets/images/wall3.png"},
     {name: "black", path: "assets/images/black.jpg"},
-    {name: "lights", path: "assets/images/lights.png"}
+    {name: "lights", path: "assets/images/lights.png"},
+    {name: "tanica", path: "assets/images/tanica.png"}
+
   ],
   atlas: [],
   sounds: [

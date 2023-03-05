@@ -79,7 +79,7 @@ export default class Livello3 extends Phaser.Scene {
 
 
         //tanica
-        let tanica = this.physics.add.sprite(512, 2300, "bomb").setScale(2);
+        let tanica = this.physics.add.sprite(512, 2300, "tanica").setScale(0.05);
         tanica.body.allowGravity = false;
         tanica.setImmovable(true)
 
